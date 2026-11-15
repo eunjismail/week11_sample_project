@@ -2,8 +2,22 @@
 
 React + Vite 기반 학생 배포용 Sample Project입니다. **조회와 삭제는 완성**, 등록 및 완료 변경은 학생이 직접 구현하도록 `TODO`로 남겨두었습니다.
 
-## 실행 방법
+# Source Code Exploration
+### Project structure
+index.html은 하나만 존재하고 /src/main.jsx와 연결되어 있다.
+main.jsx는 ./App.jsx와 연결되어 있다. 그리고 해당 파일은 Component인 CourseList.jsx와 연결되어 있다.
+CourseList.jsx는 화면의 중간 부분, 즉 현재 상황과 배열을 나타내고 있다. (map방식으로 코드가 짜여 있다)
+그리고 현재에서 변화가 생길 때마다 화면을 변경시킨다.
+또다른 Component인 CourseItem도 연결이 되어 있는데 해당 파일은 완료 여부를 확인하는 파일이다.
+### Component & Props : CourseList와 CourseItem의 관계 및 Props 전달 방식
+CourseList는 부모이고 전체적인 과목 데이터를 관리하고 있다. CourseItem은 자식이다. 그리고 각각 과목의 정보를 화면에 표시하는 역할이다. course, onDelete, onToggle을 전달하고 있고, 버튼을 클릭했을 때 부모 component의 함수를 호출하고 있다.
+### State & Event: useState를 이용한 상태 관리 및 삭제 버튼의 동작 원리
+courses와 newName의 상태가 관리되고 있다. courses는 전체 과목을 배열로 관리한다. newName은 새로운 과목을 입력하는 곳의 관리하고 있다. 삭제버튼은 사용자가 delete버튼을 누르면 onDelete함수가 실행되면서 해당 과목의 ID를 부모 component로 전달한다. 그럼 거기서 handleDelete함수가 실행면서 삭제 확인을 한번 더 하고, 확인을 누르면 filter를 통해 해당 ID를 제외한 새로운 배열을 생성한다. 과목 목록이 변경되면 react가 해당 부분의 화면을 다시 렌더링해서 변경된 내용을 표시하는 것이다. 
+### ode Analysis: 주요 코드 2개(각 5~15줄)를 선택하여 동작 원리 설명
+첫번째로는, 삭제 기능이다. useState를 통해 목록과 입력받는 것의 값을 관리한다. handleDelete 함수는 삭제할 과목의 ID를 전달받고, 삭제를 확인하면 filter를 통해 해당 ID를 제외하고 새로운 배열을 만든 후 화면을 업데이트 하는 것이다.
+두번재로는, 완료 기능이다. 각 과목의 완료 값을 표시하는 체크박스이다. checked={course.completed}를 통해 과목의 완료 상태가 결정된다. 체크박스가 클릭되면 부모 component에 해당 과목의 ID가 전달된다. (onToggle(course.id)를 통해서)
 
+## 실행 방법
 Node.js 20.19+ 또는 22.12+ 권장.
 
 ```bash
