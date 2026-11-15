@@ -35,7 +35,7 @@ courses와 newName의 상태가 관리되고 있다. courses는 전체 과목을
 두번재로는, 완료 기능이다. 각 과목의 완료 값을 표시하는 체크박스이다. checked={course.completed}를 통해 과목의 완료 상태가 결정된다. 체크박스가 클릭되면 부모 component에 해당 과목의 ID가 전달된다. (onToggle(course.id)를 통해서)
 
 
-# Feature Extension
+# Customizing
 ### 과목 추가
 - 파일 : courses.js
 - 추가 : 오픈소스 스튜디오라는 과목
@@ -49,12 +49,22 @@ courses와 newName의 상태가 관리되고 있다. courses는 전체 과목을
 - 변경 전 2 : .btn.primary의 background: #496fd3 -> background: violet로 설정
 - 변경 3 : .course-title은 color가 존재하지 않았다 -> color : coral로 설정
 
-### Deployment: 실제 접근 가능한 Vercel URL
+# Feature Extension
+### 구현한 기능 + 주요 코드 및 동작 결과
+- 새로운 강의 추가 기능
+사용자가 강의이름을 입력하고 Add 버튼을 누르면 새로운 강의 객체가 생성된다. 빈 문자열이 입력되는 것을 방지하기 위해 trim을 사용해꼬, setCourses를 통해서 새로운 강의을 추가하고 입력창을 초기화하는 것까지 구현하였다.
+- 강의 완료 상태 기능
+체크박스로 강의의 완료 상태가 변경되도록 구현하였다. 체크박스가 클릭되면 해당 강의의 ID가 전달되고, map을 이용해서 ID가 일치하는 과목을 찾아낸 후에 completed의 값을 반대로 바꾸도록 하였다. 그리고 setCourses를 통해 변경된 내용이 화면에 나타나도록 했다.
+- 강의 검색 기능
+useState를 이용해서 입력값을 관리하도록 했다. filter와 includes를 사용해서 검색어가 포함된 강의만 목록에 표시될 수 있도록 구현하였다.
+
+
+# Deployment: 실제 접근 가능한 Vercel URL
 https://week11-sample-project-two.vercel.app/
 
 # Weekly Review
 ### 새롭게 배운 내용 3가지
-가장 먼저 react에서 component를 이용해서 화면을 구성하고, props를 통해 부모 컴포넌트로부터 자식 컴포넌트로 데이터를 전달하는 방법을 배웠다. 그리고 데이터가 변경되면 화면에 해당 부분만 자동으로 업데이트 된다는 것을 정확하게 알게될 수 있었다. 마지막으로 map과 filter를 직접 사용해보면서 과목을 추가하거나 삭제하는, 상태를 변경하는 방법을 사용할 수 있게 되었다.
+가장 먼저 react에서 component를 이용해서 화면을 구성하고, props를 통해 부모 컴포넌트로부터 자식 컴포넌트로 데이터를 전달하는 방법을 배웠다. 그리고 데이터가 변경되면 화면에 해당 부분만 자동으로 업데이트 된다는 것을 정확하게 알게될 수 있었다. 마지막으로 map과 filter를 직접 사용해보면서 과목의 완료 상태를 변경하거나 삭제하는 방법을 배우게 되었다.
 ### 어려웠던 점과 해결 방법
 사실 처음에는 component와 props의 관계를 이해하는 것이 어려웠다. CourseList랑 CourseItem이 어떻게 연결되어 있는지 감이 안잡혔었다. 하지만 코드를 AI와 함께 확인하면서 부모 컴포넌트가 데이터를 관리하고, 자식 컴포넌트는 전달받은 props를 이용한다는 것을 이해하게 되었다.
 ### AI 활용 내용 및 느낀 점
