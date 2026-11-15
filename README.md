@@ -62,9 +62,14 @@ https://week11-sample-project-two.vercel.app/
 
 ## 확인할 질문
 - `CourseList`와 `CourseItem`의 역할은?
+CourseList는 부모 컴포넌트로 전체 강의 데이터를 관리하고, CourseItem은 자식 컴포넌트로 각 강의의 정보를 화면에 표시하는 역할이다.
 - 왜 `courses`를 직접 수정하지 않고 `setCourses()`를 사용할까요?
+그래야지 react가 데이터 변경을 알고, 화면을 다시 렌더링하기 때문이다.
 - `map()`과 `filter()`는 각각 어떤 목적인가요?
+map은 각 배열 요소를 원하는 대로 변경하고 새로운 배열을 만들고, filter는 조건에 맞는 것만 선택해서 새로운 배열을 만드는 것이다.
 - `course`, `onDelete`, `onToggle` Props는 어디에서 전달되나요?
+부모 컴포넌트인 CourseList에서 자식 컴포넌트인 CourseItem으로 전달된다.
 - 브라우저 새로고침 시 데이터가 초기화되는 이유는? (DB/localStorage 없음)
+데이터를 useState로만 관리하고 있기 때문이다.
 
 > 교육 목적의 로컬 State 앱입니다. 서버 API 및 데이터베이스는 사용하지 않습니다.
