@@ -161,7 +161,7 @@ body {
 }
 
 .btn.primary {
-    background: violet;
+    background: lightpink;
     color: white
 }
 
@@ -240,7 +240,7 @@ body {
 }
 
 .course-title {
-    color: coral;
+    color : coral;
     font-size: 14px;
     font-weight: 700;
     word-break: break-word

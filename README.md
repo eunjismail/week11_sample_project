@@ -17,6 +17,21 @@ courses와 newName의 상태가 관리되고 있다. courses는 전체 과목을
 첫번째로는, 삭제 기능이다. useState를 통해 목록과 입력받는 것의 값을 관리한다. handleDelete 함수는 삭제할 과목의 ID를 전달받고, 삭제를 확인하면 filter를 통해 해당 ID를 제외하고 새로운 배열을 만든 후 화면을 업데이트 하는 것이다.
 두번재로는, 완료 기능이다. 각 과목의 완료 값을 표시하는 체크박스이다. checked={course.completed}를 통해 과목의 완료 상태가 결정된다. 체크박스가 클릭되면 부모 component에 해당 과목의 ID가 전달된다. (onToggle(course.id)를 통해서)
 
+
+# Customizing
+### 과목 추가
+- 파일 : courses.js
+- 추가 : 오픈소스 스튜디오라는 과목
+### 제목 및 설정 변경
+- 파일 : App.jsx
+- 변경 전 : My Course Manager, React Component, Props & State Practice
+- 변경 후 : About My Courses~^^, 2026-2 (2학년 끝...)
+### 스타일 변경
+- 파일 : App.css
+- 변경 전 1 : .hero h1은 color가 존재하지 않았다 -> color: cornflowerblue로 설정
+- 변경 전 2 : .btn.primary의 background: #496fd3 -> background: lightpink로 설정
+- 변경 3 : .course-title은 color가 존재하지 않았다 -> color : coral로 설정
+
 ## 실행 방법
 Node.js 20.19+ 또는 22.12+ 권장.
 
