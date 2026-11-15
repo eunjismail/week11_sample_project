@@ -5,4 +5,5 @@ export const initialCourses = [
   { id: 3, name: 'Coding Studio', category: 'Elective', completed: false },
   { id: 4, name: 'Web Service Development', category: 'Major', completed: false },
   { id: 5, name: 'Software Engineering', category: 'Elective', completed: true },
+  { id: 6, name: '오픈소스 스튜디오', category: 'Major', completed: true },
 ];
