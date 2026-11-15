@@ -29,7 +29,7 @@ courses와 newName의 상태가 관리되고 있다. courses는 전체 과목을
 ### 스타일 변경
 - 파일 : App.css
 - 변경 전 1 : .hero h1은 color가 존재하지 않았다 -> color: cornflowerblue로 설정
-- 변경 전 2 : .btn.primary의 background: #496fd3 -> background: lightpink로 설정
+- 변경 전 2 : .btn.primary의 background: #496fd3 -> background: violet로 설정
 - 변경 3 : .course-title은 color가 존재하지 않았다 -> color : coral로 설정
 
 ## 실행 방법
